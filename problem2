@@ -1,0 +1,47 @@
+# Problem: Write a function that determines the largest number that can be written using each one of the given digits only once
+
+import random
+
+
+def problem2():
+    # List of numbers is generated
+    num_list = []
+    flag = True
+    rightnum = True
+    # Makes sure that the number is not higher than 10
+    while rightnum == True:
+        num_nums = input('How many numbers do you want in your list? ')
+        num_nums = int(num_nums)
+        if num_nums > 10:
+            print('Number is to high. Please try again.')
+        else:
+            rightnum = False
+    num_checker = 0
+    # Checks to make sure that no number is repeated
+    while flag == True:
+        number = random.randint(0, 9)
+        if number not in num_list:
+            num_checker += 1
+            num_list.append(number)
+        num_nums = int(num_nums)
+        if num_checker == num_nums:
+            flag = False
+        num_nums = str(num_nums)
+    print(num_list)
+
+    # Making a number that is the largest possible
+    new_num = ''
+    notready = True
+    while notready == True:
+        # Remove the max value in the list
+        max_value = max(num_list)
+        num_list.remove(max_value)
+        # Add to a different string that is updated through each loop
+        max_value = str(max_value)
+        new_num += max_value
+        # Check if list is an empty string
+        if num_list == []:
+            notready = False
+    print(new_num)
+
+problem2()
