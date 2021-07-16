@@ -1,0 +1,43 @@
+    # Write a function that determines if any two numbers inside a given list can be divided together to equal to a given number.
+
+from itertools import permutations
+
+def problem3():
+
+    # Making a list of numbers
+    num_list = []
+    num_numbers = input('How many numbers do you want in your list? ')
+    num_numbers = int(num_numbers)
+    for i in range(num_numbers):
+        x = True
+        while x == True:
+            number = input('Number: ')
+            number = int(number)
+            if (number in num_list):
+                print('This number has already been selected')
+                x = True
+            else:
+                x = False
+        num_list.append(number)
+        print('Your list:')
+        print(num_list)
+        print('')
+    print('')
+
+    # Using permutations to find all combinations of any 2 given numbers in a list
+    perm = permutations(num_list, 2)
+    perm_list = list(perm)
+    print('Permutated list:')
+    print(perm_list)
+    print('')
+
+    # Determines if quotient is a whole number
+    for items in perm_list:
+        quotioent = items[0]/items[1]
+        if quotioent.is_integer():
+            whole = True
+        else:
+            whole = False
+        print(items, quotioent, whole)
+
+problem3()
