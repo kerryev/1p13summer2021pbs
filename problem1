@@ -1,0 +1,41 @@
+# Problem: Write a function that computes the transaction fees and penalties charged by a bank at the end of the month.
+
+The function should compute the amount of penalties a bank charges for a customer.
+○ If the account balance is below $2,500.00 then a one time monthly fee of $X is deducted from the account balance.
+○ If the number of transactions at the end of the month is below 2 or above 10 then a transaction fee of $(Y*number
+of transactions) is deducted from the account balance.
+○ If the credit score of the customer is below 300, then:
+■ X = 20
+■ Y = 5
+○ Otherwise:
+■ X = 10
+■ Y = 2
+● The function should return the updated account balance at the end of the month (after the penalties were deducted).
+○ If account balance is negative, return the string, "Your balance is negative"
+
+#---------------------------------------------------------------------------------------------------
+
+def problem1():
+
+    # get account balance, transations, credit score
+    account_balance = float(input('Enter your account balance: '))
+    num_transations = int(input('Enter your number of transactions: '))
+    credit_score = int(input('Enter your credit score: '))
+
+    #Determine changes to account balance
+    if account_balance < 2500.00:
+        if credit_score < 300:
+            account_balance -= 20
+        else:
+            account_balance -= 10
+    if 2 > num_transations < 10:
+        if credit_score < 300:
+            account_balance -= (5*num_transations)
+        else:
+            account_balance -= (2*num_transations)
+    if account_balance < 0:
+        print('Your balance is negative.')
+    print('')
+    print('Your account balance: ' + str(account_balance))
+
+problem1()
