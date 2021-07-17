@@ -1,0 +1,24 @@
+  # Problem: Write a function that determines the trace of a matrix (2D list).
+
+def problem4():
+
+    # Get array (2d)
+    print('')
+    print('Enter numbers in base 10')
+    matrix = []
+    for i in range(3):
+        a = []
+        for i in range(3):
+            a.append(int(input('Enter a number: ')))
+        matrix.append(a)
+        print(matrix)
+        print('')
+
+    # Determining the trace of the matrix
+    trace1 = matrix[0][0]
+    trace2 = matrix[1][1]
+    trace3 = matrix[2][2]
+    tracematrix = trace1 + trace2 + trace3
+    print('Trace of Matrix: ' + str(tracematrix))
+
+problem4()
